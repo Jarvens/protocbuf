@@ -8,9 +8,9 @@ import io.netty.channel.SimpleChannelInboundHandler;
  *
  * @author wangbinbin
  * @version 1.0.0
- * @date 2018/6/10 下午6:11
+ * @date 2018/6/10 下午6:22
  */
-public class ProtoBufServerHandler extends SimpleChannelInboundHandler<MyDataInfo.Student> {
+public class ProtoBufClientHandler extends SimpleChannelInboundHandler<MyDataInfo.Student> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MyDataInfo.Student msg) throws Exception {
 
