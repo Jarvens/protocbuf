@@ -15,4 +15,17 @@ public class ProtoBufClientHandler extends SimpleChannelInboundHandler<MyDataInf
     protected void channelRead0(ChannelHandlerContext ctx, MyDataInfo.Student msg) throws Exception {
 
     }
+
+    /**
+     * 连接处于活动状态  向服务端发送数据
+     *
+     * @param ctx
+     * @throws Exception
+     */
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        MyDataInfo.Student student = MyDataInfo.Student.newBuilder().setName("李四").setAge(10).setAddress("杭州").build();
+        ctx.writeAndFlush(student);
+        super.channelActive(ctx);
+    }
 }
